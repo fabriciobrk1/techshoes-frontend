@@ -1,0 +1,28 @@
+<div class="navbar">
+  <div class="logo">TechShoes</div>
+  <div class="menu">
+    <a routerLink="/">Início</a>
+    <a routerLink= "/login">Entrar</a>
+    <a routerLink="/register">Registrar</a>
+  </div>
+</div>
+
+<div class="banner">
+  <h1>BLACK NOVEMBER</h1>
+  <p>Ofertas de outro mundo! Até <span class="highlight">70% OFF</span></p>
+  <button class="shop-btn" (click)="irParaLogin()">Aproveitar agora</button>
+</div>
+
+<div class="product-list">
+  <div class="product-card" *ngFor="let p of produtos">
+    <img [src]="p.imagem" alt="{{ p.nome }}">
+    <h3>{{ p.nome }}</h3>
+    <p class="price">R$ {{ p.preco | number:'1.2-2' }}</p>
+    <button class="buy-btn" (click)="irParaLogin()">Ver produto</button>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 TechShoes - Todos os direitos reservados.</p>
+</footer>
+

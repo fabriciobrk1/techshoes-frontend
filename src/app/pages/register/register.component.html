@@ -1,0 +1,21 @@
+<div class="register-container">
+  <h2>Registrar Usuário</h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <input type="text" name="nomeCompleto" [(ngModel)]="usuario.nomeCompleto" placeholder="Nome completo" required>
+    <input type="number" name="idade" [(ngModel)]="usuario.idade" placeholder="Idade" required min="18">
+    <input type="text" name="cpf" [(ngModel)]="usuario.cpf" placeholder="CPF" required>
+    <input type="text" name="telefone" [(ngModel)]="usuario.telefone" placeholder="Telefone" required>
+    <input type="text" name="endereco" [(ngModel)]="usuario.endereco" placeholder="Endereço" required>
+    <input type="text" name="numero" [(ngModel)]="usuario.numero" placeholder="Número" required>
+    <input type="text" name="cidade" [(ngModel)]="usuario.cidade" placeholder="Cidade" required>
+    <input type="text" name="estado" [(ngModel)]="usuario.estado" placeholder="Estado" required>
+    <input type="email" name="email" [(ngModel)]="usuario.email" placeholder="Email" required>
+    <input type="password" name="senha" [(ngModel)]="usuario.senha" placeholder="Senha" required>
+
+    <button type="submit">Registrar</button>
+  </form>
+
+  <p class="sucesso" *ngIf="mensagemSucesso">{{ mensagemSucesso }}</p>
+  <p class="erro" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+</div>
