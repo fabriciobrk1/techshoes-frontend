@@ -24,13 +24,13 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  cursor: pointer;           // 👈 garante a mãozinha
+  cursor: pointer;           
   transition: color 0.3s, transform 0.2s;
 }
 
 .menu a:hover {
   color: #b26eff;
-  transform: scale(1.05);    // leve efeito de zoom no hover
+  transform: scale(1.05);    
 }
 
 .banner {
@@ -85,6 +85,10 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 0 10px #b26eff;
 }
+.product-card h3.product-name {
+  color: #ffe600 !important; /* força a cor amarela */
+  font-weight: 600;
+}
 
 .product-card img {
   width: 100%;
@@ -110,6 +114,30 @@ body {
 .buy-btn:hover {
   background: #8e44e8;
 }
+
+.msg-logado-usuario {
+  color: #ffe600 !important; 
+  font-weight: 600; 
+}
+
+.logout-btn {
+background: #b26eff;       // cor principal do site
+border: none;
+color: white;
+padding: 0.6rem 1rem;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 600;
+transition: 0.3s;
+margin-left: 1rem;
+}
+
+.logout-btn:hover {
+background: #8e44e8;       // tom de hover similar ao buy-btn
+color: white;
+transform: scale(1.05);
+}
+
 
 footer {
   background: black;

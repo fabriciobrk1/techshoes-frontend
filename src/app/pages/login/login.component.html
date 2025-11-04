@@ -1,20 +1,18 @@
-<div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="login()" #formLogin="ngForm">
-    <div>
-      <label>E‑mail</label>
-      <input type="email" [(ngModel)]="email" name="email" required />
-    </div>
-    <div>
-      <label>Senha</label>
-      <input type="password" [(ngModel)]="senha" name="senha" required minlength="8" />
-    </div>
-    <button type="submit" [disabled]="!formLogin.form.valid">
-      Entrar
-    </button>
-  </form>
-  <div *ngIf="mensagemErro" class="error">
-    {{ mensagemErro }}
+<div class="login-page">
+  <div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()" #formLogin="ngForm">
+      <div>
+        <label>E‑mail</label>
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </div>
+      <div>
+        <label>Senha</label>
+        <input type="password" [(ngModel)]="senha" name="senha" required minlength="8" />
+      </div>
+      <button type="submit" [disabled]="!formLogin.form.valid">Entrar</button>
+    </form>
+    <div *ngIf="mensagemErro" class="error">{{ mensagemErro }}</div>
+    <p>Não tem conta? <a routerLink="/register">Registre‑se</a></p>
   </div>
-  <p>Não tem conta? <a routerLink="/register">Registre‑se</a></p>
 </div>

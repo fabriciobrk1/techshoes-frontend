@@ -1,29 +1,72 @@
-.register-container {
-  max-width: 400px;
-  margin: auto;
+.register-page {
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #0b0018; // mesmo fundo do site
+padding: 1rem;             // evita colar nas bordas em telas pequenas
+}
+
+.input-row {
   display: flex;
-  flex-direction: column;
+  gap: 0.75rem; // espaço entre os inputs
+  margin-bottom: 0.75rem;
 
   input {
-    margin-bottom: 10px;
-    padding: 8px;
+    flex: 1; // faz os inputs ocuparem igualmente a linha
   }
+}
 
-  button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
 
-  .sucesso {
-    color: green;
-    margin-top: 10px;
-  }
+.register-container {
+width: 100%;
+max-width: 500px;
+padding: 2rem;
+background: linear-gradient(135deg, #40007a, #b26eff);
+border-radius: 12px;
+box-shadow: 0 0 15px #b26eff;
+color: white;
+font-family: 'Poppins', sans-serif;
+display: flex;
+flex-direction: column;
 
-  .erro {
-    color: red;
-    margin-top: 10px;
-  }
+input {
+width: 100%;
+padding: 0.6rem;
+margin-bottom: 0.75rem;
+border-radius: 6px;
+border: none;
+outline: none;
+}
+
+button {
+width: 100%;
+padding: 0.75rem;
+margin-top: 1rem;
+background: #b26eff;
+border: none;
+border-radius: 6px;
+color: white;
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+background: #8e44e8;
+}
+
+.sucesso {
+color: #00ff00; // destaque de sucesso
+margin-top: 0.75rem;
+text-align: center;
+font-weight: 600;
+}
+
+.erro {
+color: #ffe600; // destaque de erro compatível com o tema
+margin-top: 0.75rem;
+text-align: center;
+font-weight: 600;
+}
 }

@@ -1,36 +1,64 @@
+.login-page {
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #0b0018;
+padding: 1rem; // para não grudar nas bordas em telas pequenas
+}
+
 .login-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 1rem;
+width: 100%;            // ocupa 100% do espaço disponível até o max-width
+max-width: 500px;       // maior largura para ficar menos vertical
+padding: 2rem;
+background: linear-gradient(135deg, #40007a, #b26eff);
+border-radius: 12px;
+box-shadow: 0 0 15px #b26eff;
+color: white;
+font-family: 'Poppins', sans-serif;
 
-  form div {
-    margin-bottom: 0.75rem;
-  }
+form div {
+margin-bottom: 0.75rem;
+}
 
-  label {
-    display: block;
-    margin-bottom: 0.25rem;
-  }
+label {
+display: block;
+margin-bottom: 0.25rem;
+}
 
-  input {
-    width: 100%;
-    padding: 0.5rem;
-  }
+input {
+width: 100%;
+padding: 0.5rem;
+border-radius: 6px;
+border: none;
+outline: none;
+}
 
-  button {
-    width: 100%;
-    padding: 0.75rem;
-    margin-top: 1rem;
-  }
+button {
+width: 100%;
+padding: 0.75rem;
+margin-top: 1rem;
+background: #b26eff;
+border: none;
+border-radius: 6px;
+color: white;
+font-weight: 600;
+cursor: pointer;
+transition: 0.3s;
+}
 
-  p {
-    margin-top: 1rem;
-    text-align: center;
-  }
+button:hover {
+background: #8e44e8;
+}
 
-  a {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+p {
+margin-top: 1rem;
+text-align: center;
+}
+
+a {
+color: #ffe600;
+text-decoration: underline;
+cursor: pointer;
+}
 }
