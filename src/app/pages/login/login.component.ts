@@ -44,8 +44,8 @@ this.usuarioService.login(loginData)
       console.log('Login bem‑sucedido:', res);
 
       this.usuarioLogado = res;
-      localStorage.setItem('usuario', JSON.stringify(res)); // salva estado
-      this.router.navigate(['/home']); // redireciona para página logada
+      localStorage.setItem('usuario', JSON.stringify(res)); 
+      this.router.navigate(['/home']); 
     },
     error: (err) => {
       console.error('Erro no login:', err);
@@ -58,7 +58,7 @@ this.usuarioService.login(loginData)
 
 logout() {
 this.usuarioLogado = null;
-localStorage.removeItem('usuario'); // limpa estado
-this.router.navigate(['/login']); // volta para tela de login
+localStorage.removeItem('usuario'); 
+this.router.navigate(['/login']); 
 }
 }

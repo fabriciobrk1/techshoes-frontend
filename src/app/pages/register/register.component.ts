@@ -36,7 +36,7 @@ export class RegisterComponent {
         next: (res) => {
           this.mensagemSucesso = 'Usuário registrado com sucesso!';
           this.mensagemErro = '';
-          form.resetForm(); // limpa o formulário
+          form.resetForm(); 
         },
         error: (err) => {
           this.mensagemErro = err.error?.message || 'Erro ao registrar usuário';

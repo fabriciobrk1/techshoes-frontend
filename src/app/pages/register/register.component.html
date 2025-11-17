@@ -1,28 +1,161 @@
 <div class="register-page">
   <div class="register-container">
     <h2>Registrar Usuário</h2>
+
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-      <input type="text" name="nomeCompleto" [(ngModel)]="usuario.nomeCompleto" placeholder="Nome completo" required>
-      <input type="number" name="idade" [(ngModel)]="usuario.idade" placeholder="Idade" required min="18">
-      <input type="text" name="cpf" [(ngModel)]="usuario.cpf" placeholder="CPF" required>
-      <input type="text" name="telefone" [(ngModel)]="usuario.telefone" placeholder="Telefone" required>
 
-      <!-- Agrupando endereço e número -->
-      <div class="input-row">
-        <input type="text" name="endereco" [(ngModel)]="usuario.endereco" placeholder="Endereço" required>
-        <input type="text" name="numero" [(ngModel)]="usuario.numero" placeholder="Número" required>
+      <!-- NOME COMPLETO -->
+      <input 
+        type="text" name="nomeCompleto"
+        [(ngModel)]="usuario.nomeCompleto"
+        placeholder="Nome completo"
+        #nomeModel="ngModel"
+        required minlength="3">
+      <div class="erro" *ngIf="nomeModel.invalid && nomeModel.touched">
+        <span *ngIf="nomeModel.errors?.['required']">O nome é obrigatório.</span>
+        <span *ngIf="nomeModel.errors?.['minlength']">
+          O nome deve ter no mínimo {{ nomeModel.errors?.['minlength'].requiredLength }} caracteres.
+        </span>
       </div>
 
-      <!-- Agrupando cidade e estado -->
-      <div class="input-row">
-        <input type="text" name="cidade" [(ngModel)]="usuario.cidade" placeholder="Cidade" required>
-        <input type="text" name="estado" [(ngModel)]="usuario.estado" placeholder="Estado" required>
+      <!-- IDADE -->
+      <input 
+        type="number" name="idade" 
+        [(ngModel)]="usuario.idade"
+        placeholder="Idade"
+        #idadeModel="ngModel"
+        required min="18">
+      <div class="erro" *ngIf="idadeModel.invalid && idadeModel.touched">
+        <span *ngIf="idadeModel.errors?.['required']">A idade é obrigatória.</span>
+        <span *ngIf="idadeModel.errors?.['min']">A idade mínima é 18 anos.</span>
       </div>
 
-      <input type="email" name="email" [(ngModel)]="usuario.email" placeholder="Email" required>
-      <input type="password" name="senha" [(ngModel)]="usuario.senha" placeholder="Senha" required>
+      <!-- CPF -->
+      <input 
+        type="text" name="cpf"
+        [(ngModel)]="usuario.cpf"
+        placeholder="CPF"
+        #cpfModel="ngModel"
+        required
+        pattern="^\d{3}\.\d{3}\.\d{3}\-\d{2}$">
+      <div class="erro" *ngIf="cpfModel.invalid && cpfModel.touched">
+        <span *ngIf="cpfModel.errors?.['required']">O CPF é obrigatório.</span>
+        <span *ngIf="cpfModel.errors?.['pattern']">
+          O CPF deve estar no formato 000.000.000-00.
+        </span>
+      </div>
+
+      <!-- TELEFONE -->
+      <input 
+        type="text" name="telefone"
+        [(ngModel)]="usuario.telefone"
+        placeholder="Telefone"
+        #telModel="ngModel"
+        required
+        pattern="^\(\d{2}\)\s\d{5}\-\d{4}$">
+      <div class="erro" *ngIf="telModel.invalid && telModel.touched">
+        <span *ngIf="telModel.errors?.['required']">O telefone é obrigatório.</span>
+        <span *ngIf="telModel.errors?.['pattern']">
+          O telefone deve estar no formato (99) 99999-9999.
+        </span>
+      </div>
+
+      <!-- ENDEREÇO E NÚMERO -->
+      <div class="input-row">
+
+        <div class="input-group">
+          <input 
+            type="text" name="endereco"
+            [(ngModel)]="usuario.endereco"
+            placeholder="Endereço"
+            #endModel="ngModel"
+            required>
+          <div class="erro" *ngIf="endModel.invalid && endModel.touched">
+            <span>O endereço é obrigatório.</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input 
+            type="text" name="numero"
+            [(ngModel)]="usuario.numero"
+            placeholder="Número"
+            #numModel="ngModel"
+            required>
+          <div class="erro" *ngIf="numModel.invalid && numModel.touched">
+            <span>O número é obrigatório.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CIDADE E ESTADO -->
+      <div class="input-row">
+
+        <div class="input-group">
+          <input 
+            type="text" name="cidade"
+            [(ngModel)]="usuario.cidade"
+            placeholder="Cidade"
+            #cidadeModel="ngModel"
+            required minlength="2">
+          <div class="erro" *ngIf="cidadeModel.invalid && cidadeModel.touched">
+            <span *ngIf="cidadeModel.errors?.['required']">A cidade é obrigatória.</span>
+            <span *ngIf="cidadeModel.errors?.['minlength']">
+              A cidade deve ter pelo menos 2 caracteres.
+            </span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input 
+            type="text" name="estado"
+            [(ngModel)]="usuario.estado"
+            placeholder="Estado"
+            #estadoModel="ngModel"
+            required minlength="2">
+          <div class="erro" *ngIf="estadoModel.invalid && estadoModel.touched">
+            <span *ngIf="estadoModel.errors?.['required']">O estado é obrigatório.</span>
+            <span *ngIf="estadoModel.errors?.['minlength']">
+              O estado deve ter pelo menos 2 caracteres.
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- EMAIL -->
+      <input 
+        type="email" name="email"
+        [(ngModel)]="usuario.email"
+        placeholder="Email"
+        #emailModel="ngModel"
+        required>
+      <div class="erro" *ngIf="emailModel.invalid && emailModel.touched">
+        <span *ngIf="emailModel.errors?.['required']">O email é obrigatório.</span>
+        <span *ngIf="emailModel.errors?.['email']">Digite um email válido.</span>
+      </div>
+
+      <!-- SENHA -->
+      <input 
+        type="password" name="senha"
+        [(ngModel)]="usuario.senha"
+        placeholder="Senha"
+        #senhaModel="ngModel"
+        required minlength="8"
+        pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$">
+      <div class="erro" *ngIf="senhaModel.invalid && senhaModel.touched">
+        <span *ngIf="senhaModel.errors?.['required']">A senha é obrigatória.</span>
+        <span *ngIf="senhaModel.errors?.['minlength']">
+          A senha deve ter no mínimo {{ senhaModel.errors?.['minlength'].requiredLength }} caracteres.
+        </span>
+        <span *ngIf="senhaModel.errors?.['pattern']">
+          A senha precisa ter letra maiúscula, minúscula e número.
+        </span>
+      </div>
 
       <button type="submit">Registrar</button>
+
     </form>
 
     <p class="sucesso" *ngIf="mensagemSucesso">{{ mensagemSucesso }}</p>
